@@ -1,0 +1,15 @@
+1. Your docker-compose.yml file.
+ ans: uploaded in git link
+ git link:
+ 
+2. A brief description of any challenges you encountered and how you resolved them.
+ Ans: I have encountered issues initially starting the services. After some changes in the yml file it works OK. But couldn't start the python service.
+ 
+ 3. Steps to run the Docker Compose configuration you've created
+ Ans: Steps are given below
+ 1. Creating Project Directory
+ 2. Creating docker-compose.yml
+ 3. Build Docker Images
+ 4. Start Docker Compose Services
+ 5. Access Services: Couldn't access python service though
+ 6. stop services:

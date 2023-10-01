@@ -1,0 +1,41 @@
+services:
+
+  app:
+   image: python
+   build:
+       context: .
+       dockerfile: Dockerfile
+   ports:
+      - "5000:5000" 
+   command: python3 hello_world.py
+   networks:
+     - mynetwork
+   
+
+  database:
+   image: mysql
+   environment:
+      MYSQL_ROOT_PASSWORD: testPass0123
+      MYSQL_DATABASE: testDatabase
+      MYSQL_USER: testUser001
+      MYSQL_PASSWORD: testPass0123
+
+   ports:
+     - "3306:3306"  # Adjust the port if necessary
+   volumes:
+     - ./mysql_data:/var/lib/mysql  # Persist MySQL data
+   networks:
+     - mynetwork
+
+  admin:
+   image: adminer
+   ports:
+     - "8080:8080"  # Adjust the port if necessary
+   depends_on:
+     - database
+   networks:
+     - mynetwork
+
+
+networks:
+  mynetwork:
